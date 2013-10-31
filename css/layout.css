@@ -178,11 +178,11 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1, h2 {
-	color: #dc322f;
+	color: #ffc02c;
 }
 
 h3 {
-	color: #268bd2;
+	color: #ffffff;
 }
 
 /* =Fallback message for non-supported browsers
