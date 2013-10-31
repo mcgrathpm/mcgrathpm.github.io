@@ -1,381 +1,239 @@
-
 <!doctype html>
-
-<!--
-
-    Welcome to the light side of the source, young padawan.
-
-    One step closer to learn something interesting you are...
-
-                               ____                  
-                            _.' :  `._               
-                        .-.'`.  ;   .'`.-.           
-               __      / : ___\ ;  /___ ; \      __  
-             ,'_ ""--.:__;".-.";: :".-.":__;.--"" _`,
-             :' `.t""--.. '<@.`;_  ',@>` ..--""j.' `;
-                  `:-.._J '-.-'L__ `-- ' L_..-;'     
-                    "-.__ ;  .-"  "-.  : __.-"       
-                        L ' /.------.\ ' J           
-                         "-.   "--"   .-"            
-                        __.l"-:_JL_;-";.__           
-                     .-j/'.;  ;""""  / .'\"-.        
-                   .' /:`. "-.:     .-" .';  `.      
-                .-"  / ;  "-. "-..-" .-"  :    "-.   
-             .+"-.  : :      "-.__.-"      ;-._   \  
-             ; \  `.; ;                    : : "+. ; 
-             :  ;   ; ;                    : ;  : \: 
-             ;  :   ; :                    ;:   ;  : 
-            : \  ;  :  ;                  : ;  /  :: 
-            ;  ; :   ; :                  ;   :   ;: 
-            :  :  ;  :  ;                : :  ;  : ; 
-            ;\    :   ; :                ; ;     ; ; 
-            : `."-;   :  ;              :  ;    /  ; 
-             ;    -:   ; :              ;  : .-"   : 
-             :\     \  :  ;            : \.-"      : 
-              ;`.    \  ; :            ;.'_..--  / ; 
-              :  "-.  "-:  ;          :/."      .'  :
-               \         \ :          ;/  __        :
-                \       .-`.\        /t-""  ":-+.   :
-                 `.  .-"    `l    __/ /`. :  ; ; \  ;
-                   \   .-" .-"-.-"  .' .'j \  /   ;/ 
-                    \ / .-"   /.     .'.' ;_:'    ;  
-                     :-""-.`./-.'     /    `.___.'   
-                           \ `t  ._  /               
-                            "-.t-._:'                
-
--->
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>CSS 3D transforms - a very short introduction - by Bartek Szopka</title>
+    <meta name="viewport" content="width=1024" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>Impressed? | A presentation about presentations</title>
     
-    <script>
-        (function(d,ua){
-            if ((ua.indexOf('chrome') > -1) || (ua.indexOf('safari') > -1 && ua.indexOf("mobile") === -1)) {
-                d.className += " supported ";
-            }
-        })(document.documentElement, navigator.userAgent.toLowerCase());
-    </script>
+    <meta name="description" content="Impressed? aims to cover the different tools that can be used to create presentations today, and focuses on Impress.js" />
+    <meta name="author" content="Jeremy Herve" />
+    <meta name="google-site-verification" content="-B-zhCyRvXZ1KiKkHPodA68c1mJ-_5btJl3rxvz37Ns" />
 
-    <meta name="description" content="Interactive presentation introducing CSS 3D transforms.">
-    <meta name="author" content="Bartek Szopka" />
+    <link href="css/layout.css" rel="stylesheet" />
     
-    <link href="http://fonts.googleapis.com/css?family=Ubuntu:700|Ubuntu+Mono|Crimson+Text:400,700,400italic" rel="stylesheet" />
-    <link href="css/style.css" rel="stylesheet" />
-    <script src="js/prefixfree.js"></script>
-</head>
-<body>
-
-<div class="fallback-message">
-    <p>This presentation was build for latest <b>Chrome</b> or <b>Safari</b> browser.</p>
-    <p>You are viewing simplified view, but most of the CSS 3D will not work for you, sorry.</p>
-</div>
-
-<div id="impress">
-
-<div id="title" class="step">
-    <h1>
-        <span class="short">A very short introduction to</span>
-        <span class="css">CSS<span class="d3">3D</span></span>
-        <span class="transforms">transforms</span>
-    </h1>
-    <span class="author">
-        <i>by</i><br/>
-        <span class="name">Bartek Szopka</span> <a href="http://twitter.com/bartaz">@bartaz</a>
-        <a class="cognifide" href="http://cognifide.com"><img src="img/cognifide.png" width="150" /></a>
-    </span>
-
-</div>
-
-<div id="support" class="step" data-x="-640" data-y="0" data-rotate="30" data-scale="0.4">
-    <h2>Browser support</h2>
-    <div class="current">
-        <div class="safari browser"><span class="prefix"><code>-webkit</code></span></div>
-        <div class="chrome browser"><span class="prefix"><code>-webkit</code></span></div>
-        <div class="android browser"><span class="prefix"><code>-webkit</code></span></div>
-    </div>
-    <div class="future">
-        <div class="firefox browser"><span class="prefix"><code>-moz</code></span> <span class="version">10&nbsp;</span></div>
-        <div class="ie browser"><span class="prefix"><code>-ms</code></span> <span class="version">10&nbsp;</span></div>
-        <div class="opera browser"><span class="version">?&nbsp;</span></div>
-    </div>
-</div>
-
-<div id="transforms2d" class="step" data-x="-620" data-y="500" data-rotate="90" data-scale="0.5">
-    <h2>2D transforms</h2>
-    
-    <div class="face target">
-        2D
-        <span class="axis x"></span>
-        <span class="axis y"></span>
-    </div>
-
-    <code class="snippet">
-        transform:
-        <span class="code" data-property="transform">
-        <span class="switch disabled">translate(200px,100px)</span><br/>
-        <span class="indent">          </span>
-        <span class="switch">rotate(45deg)</span><br/>
-        <span class="indent">          </span>
-        <span class="switch disabled">scale(2)</span><br/>
-        <span class="indent">          </span>
-        <span class="switch">skew(30deg)</span><br/>
-        <span class="indent">          </span>
-        <span class="switch disabled">matrix(-1,0,0,1,0,0)</span></span>;
-    </code>
-</div>
-
-<div id="transforms3d" class="step" data-x="-30" data-y="540" data-rotate="190" data-scale="0.6">
-
-    <h2>3D transforms</h2>
-    
-    <div class="face target">
-        3D
-        <span class="axis x"></span>
-        <span class="axis y"></span>
-        <span class="axis z"></span>
-    </div>
-    
-    <code class="snippet">
-        transform: <br/>
-        <span class="code" data-property="transform">
-            <span class="indent">   </span>
-            <label for="transform3d-perspective-slider" class="switch slider">
-                perspective(<span class="val">600</span>px)
-                <input type="range" id="transform3d-perspective-slider" min="200" max="2000" value="600" />
-            </label>
-            <br/>
-            
-            <span class="indent">   </span>
-            <label for="transform3d-translateX-slider" class="switch slider">
-                translateX(<span class="val">-100</span>px)
-                <input type="range" id="transform3d-translateX-slider" min="-500" max="500" value="-100" />
-            </label>
-            <label for="transform3d-translateY-slider" class="switch disabled slider">
-                translateY(<span class="val">100</span>px)
-                <input type="range" id="transform3d-translateY-slider" min="-200" max="200" value="100" />
-            </label>
-            <label for="transform3d-translateZ-slider" class="switch disabled slider">
-                translateZ(<span class="val">100</span>px)
-                <input type="range" id="transform3d-translateZ-slider" min="-500" max="500" value="100" />
-            </label>
-            <br/>
-            
-            <span class="indent">   </span>
-            <label for="transform3d-rotateX-slider" class="switch slider">
-                rotateX(<span class="val">60</span>deg)
-                <input type="range" id="transform3d-rotateX-slider" min="0" max="360" value="60" />
-            </label> 
-            <label for="transform3d-rotateY-slider" class="switch disabled slider">
-                rotateY(<span class="val">90</span>deg)
-                <input type="range" id="transform3d-rotateY-slider" min="0" max="360" value="90" />
-            </label>
-            <label for="transform3d-rotateZ-slider" class="switch disabled slider">
-                rotateZ(<span class="val">30</span>deg)
-                <input type="range" id="transform3d-rotateZ-slider" min="0" max="360" value="30" />
-            </label>
-            <br/>
-        
-            <span class="indent">   </span>
-            <label for="transform3d-rotate3d-slider" class="switch disabled slider">
-                rotate3d(1,1,0,<span class="val">60</span>deg)
-                <input type="range" id="transform3d-rotate3d-slider" min="0" max="360" value="60" />
-            </label>
-            <br/>
-        
-            <span class="indent">   </span>
-            <label for="transform3d-scaleX-slider" class="switch disabled slider">
-                scaleX(<span class="val">0.5</span>)
-                <input type="range" id="transform3d-scaleX-slider" min="-10" max="20" value="5" step="1" data-divider="10" data-pad="4"/>
-            </label>
-            <label for="transform3d-scaleY-slider" class="switch disabled slider">
-                scaleY(<span class="val">0.5</span>)
-                <input type="range" id="transform3d-scaleY-slider" min="-10" max="20" value="5" step="1" data-divider="10" />
-            </label>
-            <label for="transform3d-scaleZ-slider" class="switch disabled slider">
-                scaleZ(<span class="val">0.5</span>)<input type="range" id="transform3d-scaleZ-slider" min="-10" max="20" value="5" step="1" data-divider="10" /></label></span>;
-    </code>
-</div>
-
-<div id="perspective" class="step" data-x="450" data-y="250" data-rotate="100" data-scale="0.25">
-    <h2>Perspective</h2>
-    
-    <div class="scene target">
-        <div class="cross"></div>
-        
-        <div class="box">
-            <div class="top"></div>
-            <div class="left"></div>
-            <div class="right"></div>
-            <div class="bottom"></div>
-        </div>
-        
-        <div class="box">
-            <div class="top"></div>
-            <div class="left"></div>
-            <div class="right"></div>
-            <div class="bottom"></div>
-        </div>
-    </div>
-
-    <code class="snippet">
-        .scene {<br/>
-            <span class="indent">   </span>
-            <span class="code" data-property="perspective">
-            <label for="scene-perspective-slider" class="slider switch">
-            <span class="ignore">perspective:</span>
-                <span class="val">1000</span>px<input id="scene-perspective-slider" type="range" max="2000" min="200" value="1000"/>
-            </label>
-            </span>;
-            <br/>
-            <span class="indent">   </span>
-            <span class="origin">perspective-origin: <span class="value">50% 50%</span>;</span><br/>
-        }
-        <br/>
-        .box {<br/>
-            <span class="indent">   </span>
-            transform:
-            <span class="code" data-property="transform" data-selector=".box">
-            <label for="box-perspective-slider" class="switch disabled slider">
-                perspective(<span class="val">600</span>px)
-                <input type="range" id="box-perspective-slider" min="200" max="2000" value="600" />
-            </label>
-            </span>
-            <br/>
-        }
-    </code>
-
-</div>
-
-<div id="transforms3d-cube" class="step" data-x="670" data-y="700" data-rotate="10" data-scale="0.6">
-    
-    <div class="cube target">
-        <div class="face">front</div>
-        <div class="face">back</div>
-        <div class="face">left</div>
-        <div class="face">right</div>
-        <div class="face">top</div>
-        <div class="face">bottom</div>
-    </div>
-    
-    <div class="flip">
-        <code class="snippet">
-            .cube { <br/>
-            <span class="indent">   </span>
-            transform: 
-            <span class="code" data-property="transform">
-                <label for="transform3d-cube-perspective-slider" class="switch slider">
-                    perspective(<span class="val">600</span>px)
-                    <input type="range" id="transform3d-cube-perspective-slider" min="200" max="2000" value="600" />
-                </label>
-                <br/>
+    <link rel="shortcut icon" href="favicon.png" />
+   
+    <script type="text/javascript">
+                var _gaq = _gaq || [];
+                _gaq.push(['_setAccount', 'UA-1697171-15']);
+                _gaq.push(['_trackPageview']);
                 
-                <span class="indent">       </span>
-                <label for="transform3d-cube-rotateX-slider" class="switch slider">
-                    rotateX(<span class="val">330</span>deg)
-                    <input type="range" id="transform3d-cube-rotateX-slider" min="0" max="360" value="330" />
-                </label> 
-                <label for="transform3d-cube-rotateY-slider" class="switch slider">
-                    rotateY(<span class="val">320</span>deg)
-                    <input type="range" id="transform3d-cube-rotateY-slider" min="0" max="360" value="320" />
-                </label>
-                <label for="transform3d-cube-rotateZ-slider" class="switch slider">
-                    rotateZ(<span class="val">0</span>deg)<input type="range" id="transform3d-cube-rotateZ-slider" min="0" max="360" value="0" /></label></span>;
-            <br/>
-            
-            <span class="indent">   </span>
-            transform-style: <span class="code" data-property="transformStyle"><span class="switch">preserve-3d</span></span>;
-                <span class="comment">/* default: `flat` */</span><br/>
-            }<br/><br/>
-            
-            
-            .face {<br/>
-                <span class="indent">   </span>
-                <label for="transform3d-cube-opacity-slider" class="slider">
-                    opacity: <span class="code" data-property="opacity" data-selector=".face"><span class="val">0.5</span><input type="range" id="transform3d-cube-opacity-slider" min="1" max="10" value="5" step="1" data-divider="10" /></span>;
-                </label><br/>
-            
-            <span class="indent">   </span>
-            backface-visibility: <span class="code" data-property="backfaceVisibility" data-selector=".face"><span class="switch disabled">hidden</span></span>;
-                <span class="comment">/* default: `visible` */</span><br/>
-            }
-        </code>
+                (function() {
+                        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+                })();
+        </script>
+</head>
+<body class="impress-not-supported">
+
+        <div class="fallback-message">
+            <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+            <p>For the best experience please use the latest <b>Chrome</b>, <b>Safari</b> or <b>Firefox</b> browser.</p>
+        </div>
+
+        <div id="impress">
         
-        <code class="snippet back">
-            &lt;div class="<span class="cube-flat switch">cube</span>"&gt;<br/>
-            <span class="indent">   </span>&lt;div class="face"&gt;front&lt;/div&gt;<span class="indent"> </span>
-                <span class="comment"><span class="indent">               </span> translateZ(100px)</span><br/>
-            <span class="indent">   </span>&lt;div class="face"&gt;back&lt;/div&gt;<span class="indent">  </span>
-                <span class="comment">rotateY(180deg) translateZ(100px)</span><br/>
-            <span class="indent">   </span>&lt;div class="face"&gt;left&lt;/div&gt;<span class="indent">  </span>
-                <span class="comment">rotateY(-90deg) translateZ(100px)</span><br/>
-            <span class="indent">   </span>&lt;div class="face"&gt;right&lt;/div&gt;<span class="indent"> </span>
-                <span class="comment">rotateY( 90deg) translateZ(100px)</span><br/>
-            <span class="indent">   </span>&lt;div class="face"&gt;top&lt;/div&gt;<span class="indent">   </span>
-                <span class="comment">rotateX( 90deg) translateZ(100px)</span><br/>
-            <span class="indent">   </span>&lt;div class="face"&gt;bottom&lt;/div&gt;<span class="indent"></span>
-                <span class="comment">rotateX(-90deg) translateZ(100px)</span><br/>
-            &lt;/div&gt;
-        </code>
-    </div>
+<!-- Title -->
+        
+            <div id="first" class="step slide" data-x="0" data-y="-1500">
+                <h1>Impressed?</h1>
+                <q>A presentation <b>about</b> presentations</q>
+            </div>
 
-</div>
+<!-- Small story - 
+        preparing my talk, on another topic
+        only LibreOffice available
+ -->
+            
+            <div id="libreimpress" class="step slide" data-x="1500" data-y="-1500">
+                    <img src="img/libreoffice.png" alt="Libre Office Impress" />                
+            </div>
 
-<div id="remember" class="step" data-x="750" data-y="70" data-rotate="30" data-scale="0.4">
-    <h2>Remember</h2>
-    
-    <h3>It is <b>not</b> a <b>3D engine</b></h3>
-    <ul>
-        <li>there is <b>no single coordinate system</b></li>
-        <li>there is <b>no camera, light, etc.</b></li>
-        <li>complex scenes are <b>hard to maintain</b></li>
-        <li>there are <b>rendering order</b> issues</li>
-        <li><b>hardware accelerated</b> layers are not always good</li>
-    </ul>
-</div>
+<!-- Graph, what were you using this week? -->
+            
+            <div id="intro" class="step slide" data-x="3000" data-y="-1500">
+                    <q>What did you use to prepare your talk?</q>
+                <div id="chartcontainer"></div>
+            </div>
 
-<div id="demos" class="step" data-x="950" data-y="300" data-rotate="-60" data-scale="0.2">
-    <h2>demos</h2>
-    
-    <h3>...but, you can build interesting stuff</h3>
-    <p>
-        <a href="http://css-vfx.googlecode.com/svn/trunk/snowstack/snowstack.html">SnowStack Gallery</a>,
-        <a href="http://www.apple.com/html5/showcase/transitions/">Apple CSS3 Transitions Showcase</a>,
-        <a href="http://www.paulrhayes.com/experiments/sphere/">3D Sphere</a>,
-        <a href="http://www.keithclark.co.uk/labs/3dcss/demo/">CSS 3D FPS Concept</a>,
-        <a href="http://cubiq.org/building-a-pure-css-3d-city">Pure CSS 3D City</a>,
-        <a href="http://www.google.com/search?q=CSS+3d+demos">and many more...</a>
-    </p>
-</div>
+<!-- So I started looking for other presentation tools 
+        And I decided to document my research
+        - Here is what was important for me in my research
+-->
+            
+            <div id="objectives" class="step biglist" data-x="4500" data-y="-1500">
+                    <h2>What's important for me?</h2>
+            </div>
+            
+<!-- Help me making a point - Clear, readable, to the point -->
+            
+            <div id="objective-1" class="step biglist" data-x="4500" data-y="-1400">
+                    <h3>To the point</h3>
+            </div>
+            
+<!-- Unique, easy to customize, easy to remember, again helping me to make a point -->
+            
+            <div id="objective-2" class="step biglist" data-x="4500" data-y="-1300">
+                    <h3>Unique</h3>
+            </div>
+            
+<!-- Easy to share, available everywhere - nowadays, your talk might be listened to again and again, and be shared -->
+            
+            <div id="objective-3" class="step biglist" data-x="4500" data-y="-1200">
+                    <h3>Easy to share</h3>
+            </div>
+            
+<!-- Flexible - I want to embed code snippets, videos, maps - talks are more than words -->
+            
+            <div id="objective-4" class="step biglist" data-x="4500" data-y="-1100">
+                    <h3>Easy embeds</h3>
+            </div>
+            
+<!-- Free - because why not? -->
+            
+            <div id="objective-5" class="step biglist" data-x="4500" data-y="-1000">
+                    <h3>Free</h3>
+            </div>
+            
+<!-- Zoom out - summary of objectives - of course, you may have other expectations, but these are mine -->
 
-<div id="learn" class="step" data-x="1050" data-y="360" data-rotate="-60" data-scale="0.2">
-    <h3>wanna learn more?</h3>
-    <p>
-        <a href="http://desandro.github.com/3dtransforms/docs/introduction.html">Intro to CSS 3D</a>,
-        <a href="http://www.eleqtriq.com/2010/05/understanding-css-3d-transforms/">Understanding CSS 3D</a>,
-        <a href="http://coding.smashingmagazine.com/2012/01/06/adventures-in-the-third-dimension-css-3-d-transforms/">Adventures in 3rd dimension</a>,
-        <a href="http://developer.apple.com/library/safari/#documentation/InternetWeb/Conceptual/SafariVisualEffectsProgGuide/Using2Dand3DTransforms/Using2Dand3DTransforms.html#//apple_ref/doc/uid/TP40008032-CH15-SW16">Safari Guide to CSS transforms</a>,
-        <a href="http://www.w3.org/TR/css3-3d-transforms/">W3C CSS 3D Transrofms Module</a>
-    </p>
-</div>
+                <div id="biglistsum" class="step biglist" data-x="4500" data-y="-1250" data-scale="1">
+                </div>
+        
+                <div id="checklist"><!-- Wrapping every element of this checklist in a container to hide it when not viewed -->
 
+<!-- Zoom Out - Compare with existing solutions -->
 
+                        <div id="compare" class="step applist" data-x="4800" data-y="-1250" data-scale="1.1">
+                                <div class="comparecol key">
+                                        <img src="img/happy-bacon.png" />
+                                        <img src="img/sad-carrot.png" />
+                                        <img src="img/sad-carrot.png" />
+                                        <img src="img/sad-carrot.png" />
+                                        <img src="img/sad-carrot.png" />
+                                </div>
+                                <div class="comparecol prezi">
+                                        <img src="img/happy-bacon.png" />
+                                        <img src="img/happy-bacon.png" />
+                                        <img src="img/happy-bacon.png" />
+                                        <img src="img/happy-bacon.png" />
+                                        <img src="img/sad-carrot.png" />
+                                </div>
+                                <div class="comparecol html5">
+                                        <img src="img/happy-bacon.png" />
+                                        <img src="img/happy-bacon.png" />
+                                        <img src="img/happy-bacon.png" />
+                                        <img src="img/happy-bacon.png" />
+                                        <img src="img/happy-bacon.png" />
+                                </div>
+                        </div>        
+        
+                </div><!-- #checklist -->
 
-<div id="end" class="step" data-x="0" data-y="500" data-rotate="0" data-scale="2">
-    <span class="author">
-        <i>by</i><br/>
-        <span class="name">Bartek Szopka</span> <a href="http://twitter.com/bartaz">@bartaz</a>
-        <a class="cognifide" href="http://cognifide.com"><img src="img/cognifide.png" width="200" /></a>
-    </span>
-</div>
+<!-- In between slide, with all HTML+JS solutions in an image 
+        There are a lot of solutions out there
+        Different options
+                Speaker Notes
+                Export to PDF
+                Responsive
+                Authoring tool
+-->
+                <div id="alot-of-solutions" class="step" data-x="4400" data-y="300">
+                        <img src="img/alot-of-solutions.jpg" alt="Alot of Solutions" />
+                </div>
 
-</div>
+<!-- And then zoom in to introduce Impress.js 
+        It's the one I used for this presentation
+        More and more people develop for it
+-->
+                                
+                <div id="intro-impress" class="step" data-x="4400" data-y="2200" data-z="-4000">
+                        <h2>Impress.js</h2>
+                        <q>Personal favorite</q>
+                        <ul>
+                                <li>Presentation on a canvas</li>
+                                <li>Total control - you don't have to follow a grid format</li>
+                                <li>Fancy 3D transforms</li>
+                                <li><a href="https://github.com/bartaz/impress.js">Available on GitHub</a></li>
+                        </ul>
+                </div>
+                
+<!-- Inconvenients
+        It's not perfect yet!
+        -- Add an image with a piece of code from the presentation, or better, include some code 
+-->                
+        
+                <div id="impress-inconvenients" class="step" data-x="4600" data-y="2900" data-rotate="90" data-z="-4000">
+                        <h2>The Perfect tool?</h2>
+                        <q>Not yet...</q>
+                        <ul>
+                                <li>Difficult to create</li>
+                                <li>No PDF Export options</li>
+                                <li>No Speaker Notes</li>
+                        </ul>
+                </div>
+                
+<!-- So why would you use it then? 
+        All hope is not lost!
+        Not everybody has time to play with a brand new JS library to create fancy graphs
+-->                
+
+                <div id="impress-why" class="step" data-x="3900" data-y="3500" data-rotate="180" data-z="-4000">
+                        <h2>Why should you try it?</h2>
+                        <q>No need to dive into code</q>
+                        <ul>
+                                <li>WordPress plugins: <a href="http://wordpress.org/extend/plugins/wprez/">WPprez</a> / <a href="http://wordpress.org/extend/plugins/3d-presentation/">3D Presentation</a></li>
+                                <li>Web app: <a href="http://tantaman.github.com/Strut/web/index.html">Strut</a></li>
+                                <li>iPad App: <a href="http://mimpressapp.com">Mimpress</a> ($2.99)</li>
+                        </ul>
+                </div>
+                
+<!-- Zoom out to the end of the presentation -->
+        
+            <div id="overview" class="step" data-x="2500" data-y="0" data-scale="10">
+                    <h1>Impressed?</h1>
+                    <q>Give it a try!</q>
+                    <h3>Jeremy Herve - @jeherve</h3>
+            </div>
+
+        </div><!-- #impress - THE END! -->
+
+<a class="ribbon" href="https://github.com/jeherve/impressed"><img style="position: absolute; top: 0; right: 0; border: 0;" src="img/forkme.png" alt="Fork me on GitHub"></a>
 
 <script src="js/impress.js"></script>
+<script type="text/javascript">
+if ( !window.location.search.match(/print/) ) {
+        impress().init();
+}
+</script>
+<script src="js/raphael.js"></script>
+<script src="js/g.raphael-min.js"></script>
+<script src="js/g.pie-min.js"></script>
+<script type="text/javascript">
+            window.onload = function () {
+                var r = Raphael("chartcontainer"),
+                    pie = r.piechart(320, 180, 160, [61, 14, 13, 8, 4, 1, 1, 1], { legend: ["Keynote - %%", "PDF - %%", "No Slides - %%", "Powerpoint - %%", "Open Office - %%", "HTML - %%", "Video - %%", "Audio - %%" ], colors: [ "#cb4b16", "#dc322f", "#d33682", "#6c71c4", "#268bd2", "#2aa198", "#859900", "#b58900" ], legendcolor: "#657B83" }).attr({ font: "20px 'pt_sansregular', sans-serif" });
 
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
-<script src="js/script.js"></script>
+                pie.hover(function () {
+                    this.sector.stop();
+                    this.sector.scale(1.1, 1.1, this.cx, this.cy);
 
+                    if (this.label) {
+                        this.label[0].stop();
+                        this.label[0].attr({ r: 7.5 });
+                        this.label[1].attr({ "font-weight": 800 });
+                    }
+                }, function () {
+                    this.sector.animate({ transform: 's1 1 ' + this.cx + ' ' + this.cy }, 500, "bounce");
 
+                    if (this.label) {
+                        this.label[0].animate({ r: 5 }, 500, "bounce");
+                        this.label[1].attr({ "font-weight": 400 });
+                    }
+                });
+            };
+</script>
 </body>
 </html>
