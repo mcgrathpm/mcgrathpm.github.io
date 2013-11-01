@@ -183,6 +183,19 @@ if ( !window.location.search.match(/print/) ) {
 	impress().init();
 }
 </script>
+
+<script>
+  var impress = impress();
+  impress.init();
+
+  document.addEventListener('impress:stepenter', function(e){
+    if (typeof timing !== 'undefined') clearInterval(timing);
+    var duration = (e.target.getAttribute('data-transition-duration') ? e.target.getAttribute('data-transition-duration') : 2000); // use the set duration or fallback to 2000ms
+    timing = setInterval(impress.next, duration);
+  });
+</script>
+
+
 <script src="js/raphael.js"></script>
 <script src="js/g.raphael-min.js"></script>
 <script src="js/g.pie-min.js"></script>
