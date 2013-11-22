@@ -105,8 +105,8 @@ body {
     font-family: 'pt_sansregular', sans-serif;
     min-height: 740px;
     
-    background: #FFFFFF;
-    color: #FFFFFF;    
+    background: #000000;
+    color: #000000;    
 }
 
 a, a:active, a:visited {
