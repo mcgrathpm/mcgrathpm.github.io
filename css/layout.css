@@ -105,8 +105,8 @@ body {
     font-family: 'pt_sansregular', sans-serif;
     min-height: 740px;
     
-    background: #007dc3;
-    color: #007dc3;    
+    background: #FFFFFF;
+    color: #FFFFFF;    
 }
 
 a, a:active, a:visited {
@@ -127,7 +127,7 @@ i, em {
 }
 
 ul li {
-	color: #2aa198;
+	color: #D83A6F;
 	display: table;
 	font-size: 30px;
 	margin-left: 20px;
@@ -178,20 +178,20 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h1, h2 {
-	color: #ffc02c;
+	color: #D83A6F;
 }
 
 li {
-	color: #ffc02c;
+	color: #D83A6F;
 }
 
 
 q {
-	color: #ffffff;
+	color: #D83A6F;
 }
 
 h3 {
-	color: #ffffff;
+	color: #D83A6F;
 }
 
 /* =Fallback message for non-supported browsers
